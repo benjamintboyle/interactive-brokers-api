@@ -1,0 +1,36 @@
+apply plugin: 'java-library'
+
+// TWS API version from API_VersionNum.txt
+version = '9.72.18'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4.1'
+}
+/*
+// Used as API has many warnings
+tasks.withType(JavaCompile) {
+    // Turn off warnings
+    options.compilerArgs << '-nowarn'
+}
+*/
+jar {
+    from sourceSets.main.allSource
+}
+
+/*
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+*/
